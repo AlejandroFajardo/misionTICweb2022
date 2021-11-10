@@ -1,6 +1,11 @@
- Nombre:Didier Alejandro Fajardo Annear
- Documento 1.099.217.222
+ Integrante 1
+ Nombre: Didier Alejandro Fajardo Annear
+ Documento: 1.099.217.222
  Rol Inicial:
- Presentacion:Soy estudiante de ingenieria de sistemas, actualmente trabajo como diseñador web y entre a este programa
-	      del MINTIC para afianzar mis conocimientos en el area de la programacion, especialmente en lo que concierne 
-	      al desarrollo web.
+ Presentacion:Soy estudiante de ingenieria de sistemas, actualmente trabajo como diseñador web y entre a este programa del MINTIC para afianzar mis conocimientos en el area de la programacion, especialmente en lo que concierne al desarrollo web.
+
+ Integrante 2
+ Nombre: Karen Viviana Murillo
+ Documento: 1.233.891.809
+ Rol Inicial:
+ Presentacion:Soy Tecnóloga en Gestión Logística del Sena del año 2016, tengo experiencia en el campo y en servicio al cliente (Call Center y Backoffice), manejo un segundo idioma (Inglés) en el cual trabajo en mejorar, ingresé al programa de Misión TIC en búsqueda de mejorar mi expectativa laboral.
