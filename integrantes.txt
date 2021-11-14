@@ -21,3 +21,9 @@ Nombre: Asly Vanessa Garcia Cardozo.
 Documento: 1001186092
 Rol Inicial:
 Presentacion: Actualmente, estudio produccion multimedia por parte del SENA, sin embargo, me llama bastante la atencion la programacion, con este programa de Mintic, he podido aprender bastante y siento que me acerca cada vez mas a cumplir mis metas.
+
+Integrante 5
+Nombre: Sergio Valentino Clavijo B.
+Documento: 1012404699
+Rol Inicial:
+Presentacion: Actualmente me desempeño como desarrollador backend, egresado ADSI del SENA, autodidacta. Mi idea con este programa es conocer nuevas tecnologías que aún no había manejado para nutrir mi stack y ampliar mis posibilidades laborales.
