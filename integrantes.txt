@@ -27,3 +27,9 @@ Nombre: Sergio Valentino Clavijo B.
 Documento: 1012404699
 Rol Inicial:
 Presentacion: Actualmente me desempeño como desarrollador backend, egresado ADSI del SENA, autodidacta. Mi idea con este programa es conocer nuevas tecnologías que aún no había manejado para nutrir mi stack y ampliar mis posibilidades laborales.
+
+Integrante 6
+Nombre: Gabriel Revelo
+Documento: 1.085.342.350
+Rol Inicial:
+Presentacion: Soy estudiante de Diseño Industrial, MisionTic2022 y trabajo como domiciliario.
