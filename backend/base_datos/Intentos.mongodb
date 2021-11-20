@@ -1,0 +1,111 @@
+// MongoDB Playground
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+const database = 'Proyecto4';
+const collection = 'projects';
+
+// The current database to use.
+use(database);
+
+//Create a new collection.
+db.createCollection(collection, {
+  validator: {
+    $jsonSchema: {
+      required: ['name', 'generalObjective', 'specificObjectives', 'budget', 'startDate', 'endDate', 'leader_id', 'status'],
+      properties: {
+        name: {
+          bsonType: 'string',
+        },
+        generalObjective: {
+          bsonType: 'string'
+        },
+        specificObjectives: {
+          bsonType: 'array'
+        },
+        budget: {
+          bsonType: 'decimal'
+        },
+        startDate: {
+          bsonType: 'date'
+        },
+        endDate: {
+          bsonType: 'date'
+        },
+        leader_id: {
+          bsonType: 'long'
+        },
+        status: {
+          enum: ['active', 'inactive']
+        },
+        phase: {
+          enum: ['started', 'in progress', 'ended']
+        }
+      }
+    }
+  }
+});
+
+const projects = [
+  {
+    "name": "Project 1",
+    "generalObjective": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl augue, ultrices non placerat maximus, feugiat nec mauris.",
+    "specificObjectives": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit", "Praesent nisl augue, ultrices non placerat maximus, feugiat nec mauris."],
+    "budget": Decimal128('20000000'),
+    "startDate": new Date(),
+    "endDate": new Date(new Date().getTime() + 60*24*60*60000),
+    "leader_id": Long('1020345678'),
+    "status": "inactive",
+  },
+  {
+    "name": "Project 2",
+    "generalObjective": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl augue, ultrices non placerat maximus, feugiat nec mauris.",
+    "specificObjectives": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit", "Praesent nisl augue, ultrices non placerat maximus, feugiat nec mauris."],
+    "budget": Decimal128('10000000'),
+    "startDate": new Date(),
+    "endDate": new Date(new Date().getTime() + 60*24*60*60000),
+    "leader_id": Long('1020345678'),
+    "status": "inactive",
+  },
+  {
+    "name": "Project 3",
+    "generalObjective": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl augue, ultrices non placerat maximus, feugiat nec mauris.",
+    "specificObjectives": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit", "Praesent nisl augue, ultrices non placerat maximus, feugiat nec mauris."],
+    "budget": Decimal128('15000000'),
+    "startDate": new Date(),
+    "endDate": new Date(new Date().getTime() + 60*24*60*60000),
+    "leader_id": Long('1020345678'),
+    "status": "inactive",
+  },
+  {
+    "name": "Project 4",
+    "generalObjective": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl augue, ultrices non placerat maximus, feugiat nec mauris.",
+    "specificObjectives": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit", "Praesent nisl augue, ultrices non placerat maximus, feugiat nec mauris."],
+    "budget": Decimal128('35000000'),
+    "startDate": new Date(),
+    "endDate": new Date(new Date().getTime() + 60*24*60*60000),
+    "leader_id": Long('1020345678'),
+    "status": "inactive",
+  }
+];
+
+// Insert projects
+db.getCollection(collection).insertMany(projects);
+
+// The prototype form to create a collection:
+/* db.createCollection( <name>,
+  {
+    capped: <boolean>,
+    autoIndexId: <boolean>,
+    size: <number>,
+    max: <number>,
+    storageEngine: <document>,
+    validator: <document>,
+    validationLevel: <string>,
+    validationAction: <string>,
+    indexOptionDefaults: <document>,
+    viewOn: <string>,
+    pipeline: <pipeline>,
+    collation: <document>,
+    writeConcern: <document>
+  }
+)*/
