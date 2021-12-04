@@ -64,6 +64,15 @@ const inputs = gql`
     role: UserRole!
     password: String!
   }
+
+  input UpdateInput {
+    email: String
+    documentId: Float
+    name: String
+    lastName: String
+    role: UserRole
+    status: UserStatus
+  }
 `;
 
 export default [

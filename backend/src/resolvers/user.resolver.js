@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import { AuthenticationError, ForbiddenError } from 'apollo-server';
 import { USER_STATUS, ROLES } from '../constants/user.constants.js'
 import Users from "../models/users.model.js";
 import Enrollements from '../models/enrollments.model.js';
@@ -59,6 +60,14 @@ const enrollments = async (parent) => {
   return enrollments;
 };
 
+const updateUser = async (parent, args, { user, errorMessage }) => {
+  if(!user) {
+    throw new AuthenticationError(errorMessage);
+  }
+  const updatedUser = Users.findByIdAndUpdate(user._id, { ...args.input }, { new: true });
+  return updatedUser;
+}
+
 export default {
   userQueries: {
     allUsers,
@@ -68,6 +77,7 @@ export default {
   userMutations: {
     register,
     login,
+    updateUser,
   },
   User: {
     enrollments,

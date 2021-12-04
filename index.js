@@ -3,10 +3,10 @@ import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
 import express from 'express';
 import http from 'http';
 import dotenv from 'dotenv';
-import validateAuthentication from './middlewares/authentication.middleware.js';
-import connect from './database.js';
-import typeDefs from './schema/index.schema.js';
-import resolvers from './resolvers/index.resolvers.js';
+import validateAuthentication from './backend/src/middlewares/authentication.middleware.js';
+import connect from './backend/src/database.js';
+import typeDefs from './backend/src/schema/index.schema.js';
+import resolvers from './backend/src/resolvers/index.resolvers.js';
 
 dotenv.config();
 connect();
@@ -20,7 +20,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
     typeDefs,
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
-    context: async ({ req }) => await validateAuthentication(req),
+    context: async ({ req }) => await validateAuthentication(req), introspection: true,
   });
   await server.start();
   server.applyMiddleware({ app });
