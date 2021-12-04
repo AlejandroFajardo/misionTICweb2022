@@ -5,8 +5,8 @@ import http from 'http';
 import dotenv from 'dotenv';
 import validateAuthentication from './middlewares/authentication.middleware.js';
 import connect from './database.js';
-import typeDefs from './schema/index.js';
-import resolvers from './resolvers/index.js';
+import typeDefs from './schema/index.schema.js';
+import resolvers from './resolvers/index.resolvers.js';
 
 dotenv.config();
 connect();
