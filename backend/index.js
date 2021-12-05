@@ -3,17 +3,17 @@ import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
 import express from 'express';
 import http from 'http';
 import dotenv from 'dotenv';
-import validateAuthentication from './backend/src/middlewares/authentication.middleware.js';
-import connect from './backend/src/database.js';
-import typeDefs from './backend/src/schema/index.schema.js';
-import resolvers from './backend/src/resolvers/index.resolvers.js';
+import validateAuthentication from './src/middlewares/authentication.middleware.js';
+import connect from './src/database.js';
+import typeDefs from './src/schema/index.schema.js';
+import resolvers from './src/resolvers/index.resolvers.js';
 
 dotenv.config();
 connect();
 
 const startApolloServer = async (typeDefs, resolvers) => {
 
-  const PORT = process.env.PORT;
+  const Port = process.env.port;
   const app = express();
   const httpServer = http.createServer(app);
   const server = new ApolloServer({
@@ -24,8 +24,8 @@ const startApolloServer = async (typeDefs, resolvers) => {
   });
   await server.start();
   server.applyMiddleware({ app });
-  await new Promise(resolve => httpServer.listen({ port: PORT }, resolve));
-  console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
+  await new Promise(resolve => httpServer.listen({ port: Port }, resolve));
+  console.log(`🚀 Server ready at http://localhost:${Port}${server.graphqlPath}`);
 };
 
 startApolloServer(typeDefs, resolvers);

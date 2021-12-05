@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { AuthenticationError, ForbiddenError } from 'apollo-server';
+import { AuthenticationError } from 'apollo-server';
 import { USER_STATUS, ROLES } from '../constants/user.constants.js'
 import Users from "../models/users.model.js";
 import Enrollements from '../models/enrollments.model.js';
@@ -40,16 +40,16 @@ const userByEmail = async (parent, args) => {
 const login = async (parent, args) => {
   const user = await Users.findOne({ email: args.email });
   if (!user) {
-    throw new Error('User not found');
+    throw new Error('Usuario o contraseña incorrecta');
   }
   const isValid = await bcrypt.compare(args.password, user.password);
   if(!isValid) {
-    throw new Error('Wrong password');
+    throw new Error('Usuario o contraseña incorrecta');
   }
   const token = await jwt.sign(
     { user },
     // eslint-disable-next-line no-undef
-    process.env.SECRET,
+    process.env.secretkey,
     { expiresIn: '30m' }
   );
   return token;

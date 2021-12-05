@@ -1,9 +1,8 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 
-dotenv.config();
-
-const connect = () => mongoose.connect(config.DB,{process.env.DATABASE_CONNECTION_STRING: true}, {
+const connect = () => mongoose.connect(process.env.dbconeccion, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
   autoIndex: true,
 })
   .then(() => console.log('Connected to DB'))

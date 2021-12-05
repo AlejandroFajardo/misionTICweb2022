@@ -4,7 +4,7 @@ const validateAuthentication = async (req) => {
   const token = req.headers.authorization;
   try {
     // eslint-disable-next-line no-undef
-    const session = await jwt.verify(token, process.env.SECRET);
+    const session = await jwt.verify(token, process.env.secretkey);
     return {
       user: session.user,
     }
