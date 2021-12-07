@@ -53,6 +53,9 @@ const mutations = gql`
   type Mutation {
     login(email: String!, password: String!): String!
   }
+  type Mutation {
+    updateUser(input: UpdateInput!): User!
+  }
 `;
 
 const inputs = gql`
@@ -65,7 +68,7 @@ const inputs = gql`
     password: String!
   }
 
-  input UpdateInput {
+  input UpdateUser {
     email: String
     documentId: Float
     name: String

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { AuthenticationError } from 'apollo-server';
+import { AuthenticationError, ForbiddenError } from 'apollo-server';
 import { USER_STATUS, ROLES } from '../constants/user.constants.js'
 import Users from "../models/users.model.js";
 import Enrollements from '../models/enrollments.model.js';
@@ -10,7 +10,7 @@ const allUsers = async (parent, args, { user, errorMessage }) => {
     throw new Error(errorMessage);
   }
   if(user.role !== ROLES.ADMIN) {
-    throw new Error('Access denied');
+    throw new ForbiddenError('Acceso denegado');
   }
   return await Users.find();
 };
