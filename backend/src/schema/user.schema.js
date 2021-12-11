@@ -54,7 +54,7 @@ const mutations = gql`
     login(email: String!, password: String!): String!
   }
   type Mutation {
-    updateUser(input: UpdateInput!): User!
+    updateUser(input: UpdateUser!): User!
   }
 `;
 

@@ -13,7 +13,7 @@ connect();
 
 const startApolloServer = async (typeDefs, resolvers) => {
 
-  const Port = process.env.port;
+  const port = process.env.port;
   const app = express();
   const httpServer = http.createServer(app);
   const server = new ApolloServer({
@@ -24,8 +24,9 @@ const startApolloServer = async (typeDefs, resolvers) => {
   });
   await server.start();
   server.applyMiddleware({ app });
-  await new Promise(resolve => httpServer.listen({ port: Port }, resolve));
-  console.log(`🚀 Server ready at http://localhost:${Port}${server.graphqlPath}`);
+  await new Promise(resolve => httpServer.listen({ port: port }, resolve));
+  console.log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`);
+  
 };
 
 startApolloServer(typeDefs, resolvers);
