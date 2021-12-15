@@ -1,0 +1,1 @@
+//Declaración de constantes
